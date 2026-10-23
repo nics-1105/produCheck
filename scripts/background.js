@@ -308,7 +308,7 @@ function handleMessage(message, sender, sendResponse) {
       return;
     }
 
-    chrome.tabs.captureVisibleTab(sender.tab.windowId, { format: "png" }, (dataUrl) => {
+    chrome.tabs.captureVisibleTab(sender.tab.windowId, { format: "jpeg", quality: 90 }, async (dataUrl) => {
       if (chrome.runtime.lastError) {
         sendResponse({ success: false, error: chrome.runtime.lastError.message });
         return;
